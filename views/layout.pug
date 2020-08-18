@@ -4,18 +4,46 @@ html
   title= title
   link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    div
-      a.navButton(href='Home')
-       // img(src='') // Corona & Sons logo
-      a.navButton(href='Product Catalog')
-        img(src='')
-      a.navButton(href="Login/Sign Up")
-        img(src='')
-    block content
-    footer
-      p All original content on this page is &copy; 2020 Corona & Sons, Inc.
-    //script(src='')  
+    div(class='grid')
+      h1= title
+        nav#navbar-default  
+      div.container-fluid
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='/catalog') Product Catalog
+          li
+            a(href='/login') Login
+          li
+            a(href='/signup') Sign Up
+    block content 
+    footer#footer
+      nav#navbar-default
+    div.container-fluid
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='/catalog') Product Catalog
+          li
+            a(href='/login') Login
+          li
+            a(href='/signup') Sign Up
+        p Copyright (c) 2020 Corona & Sons, Inc.
 
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 

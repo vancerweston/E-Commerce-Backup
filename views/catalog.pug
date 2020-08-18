@@ -1,6 +1,51 @@
 extends layout
 
-// will show all products currently available on our site. 
-// Each product will have a thumbnail image, name, and price 
-// displayed on the catalog page. 
-// Clicking any one product takes you to the products page. 
+block content
+    div(class='grid')
+        div#catalogPage
+            h1 Product Catalog 
+            div(class='search')
+                input(type='text', placeholder='Search...')
+                button(class='searchButton', id="browseProducts") Submit
+            div(class='allProducts')
+                div(class='productFeed')
+                    if products.length == 0
+                        p No Products to display...
+                    else
+                        each val in products
+                            - var _id=val._id
+                            div(class='product', id=_id, onClick='selectedProduct(this.id)')
+                                h3.productPart=val.title
+                                div.content
+                                    - var pic= val.img
+                                    img(class="productPart", src=pic, alt="Your Browser Doesn't Support Our Image, Sorry.")
+                                    p Sold By: 
+                                    p.productPart=val.seller
+                                    span $ 
+                                        //might switch span $ to an icon
+                                    p.productPart=val.price
+                                    p.productPart=val.description
+                                    span.productPart=val.rating
+                                        //want to do a star icon based on rating
+        div(class='productDetails', id='productDetails', style='display:none')
+            button(id='back', onClick='exit()') Back
+            // ^ change to icon
+            h1#title
+            div(class='content')
+                img(src='', alt="Your Browser Doesn't Support Our Image, Sorry.", id='img')
+                p Sold By:
+                p#seller
+                span $
+                p#price
+                p#description
+                p#rating
+
+    script(src='javascripts/catalog.js')
+
+
+
+
+            
+
+
+

@@ -1,1 +1,38 @@
 extends layout
+
+block content
+    div(class='grid')
+        div(class='profileTools')
+            h3 Profile Options
+            ul
+                li
+                    button(class='productButton' id='productCreateButton') Create Product
+                li
+                    button(class='productButton' id='productEditButton') Edit Product
+                li
+                    button(class='productButton' id='myProductsButton') My Products
+                li
+                    button(class='productButton' id='profileLogoutButton') Logout
+        div(class='memberProducts')
+            div(class='productFeed')
+                if products.length == 0
+                    p You don't have any Products...
+                    p Click Create Product to Start
+                else
+                    each val in products
+                        h1=val.title
+                            span(id='productDelete' class='material-icons' data-product-id=val._id) Delete
+                            // switch to an icon ^
+                        div(class='content')
+                            - var pic= val.img
+                            img(src=pic, alt="Your Browser Doesn't Support Our Image, Sorry.")
+                            p Sold By: 
+                            p=val.seller
+                            span $ 
+                            //might switch span $ to an icon
+                            p=val.price
+                            p=val.description
+                            span=val.rating
+                            //want to do a star icon based on rating
+
+

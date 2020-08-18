@@ -1,1 +1,17 @@
 extends layout
+
+block content
+    div(class='grid')
+     form(action="#")
+       div.label Login Form
+       div.username
+        input(type="text" placeholder="username")
+       div.password
+        input(type="password" placeholder="password")
+       div.checkbox
+        input(type='checkbox' name='agreement' checked)
+        |Remember me
+       button(type="button") Login
+       p
+        | Not a member
+        a(href="/signup") Sign Up Now

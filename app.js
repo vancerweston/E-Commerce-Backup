@@ -18,9 +18,9 @@ const update_user_info = require('./middleware/update');
 InitiateMongoServer().then(setupDefaultData);
 
 // Testing CRUD Operations
-InitiateMongoServer().then(create_dumb_product);
-InitiateMongoServer().then(delete_extra_data);
-InitiateMongoServer().then(update_user_info);
+// InitiateMongoServer().then(create_dumb_product);
+// InitiateMongoServer().then(delete_extra_data);
+// InitiateMongoServer().then(update_user_info);
 
 
 // setting up express

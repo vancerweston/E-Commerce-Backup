@@ -10,6 +10,7 @@ function product_data() {
         title: 'Face Mask',
         seller: 'Kat Lee',
         description: 'Cover your face with these wonderful hand made face masks.',
+        price: 8,
         rating: 5,
         img: 'https://www.al.com/resizer/wC9swhdipolXrcYluE_O8B212iA=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/BYMAZ4PXUFGLLAQYXXDKXWLGLY.JPG'
     });
@@ -19,6 +20,7 @@ function product_data() {
         title: 'Latex Gloves',
         seller: 'Vance Weston',
         description: 'Never touch germs again with these great gloves.',
+        price: 10,
         rating: 4,
         img: 'https://contestimg.wish.com/api/webimage/5e9532dfab41ab1a64cfd135-large.jpg?cache_buster=8f61be9bcff5bd60714d87fc23b758e7'
     });
@@ -28,6 +30,7 @@ function product_data() {
         title: 'Hand Sanitizer',
         seller: 'James Taylor',
         description: 'Nothing kills germs better than our hand sanitizer.',
+        price: 5,
         rating: 5,
         img: 'https://b3h2.scene7.com/is/image/BedBathandBeyond/7518112555423p?$690$&wid=690&hei=690'
     });

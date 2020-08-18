@@ -1,7 +1,8 @@
 const mongoose =  require('mongoose');
 const Schema = mongoose.Schema;
 
-const product_schema = new Schema({
+const product_schema = new mongoose.Schema({
+    //Why do i need an id hen theres a built in object number generator
     _id: {
         type: String,
         required: false
@@ -24,8 +25,12 @@ const product_schema = new Schema({
         type: String,
         required: true
     },
-    rating: {
+    price: {
         type: Number,
+        required: true
+    },
+    rating: {
+        type: String,
         required: true
     },
     img: {

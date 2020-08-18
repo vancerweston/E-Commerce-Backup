@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    div(class='grid')
+        form(action="#")
+            div.label Sign Up Form
+            div.first_name
+                label(for='first_name') First Name:
+                input(type="string" placeholder="First Name") 
+            div.middle_name
+                label(for='middle_name') Middle Name:
+                input(type="string" placeholder="Middle Name")
+            div.last_name
+                label(for='last_name') Last Name:
+                input(type="string" placeholder="Last Name")
+            div.email
+                label(for='email') Email:
+                input(type="string" placeholder="name@email.com")
+            div.user_name
+                label(for='user_name') Username:
+                input(type="string" placeholder="first and last names")
+            div.password
+                label(for='pw') Password:
+                input(type="string" placeholder="")
+            div.confirm_password
+                label(for='pw2') Confirm Password:
+                input(type="string" placeholder="")
+            button(type="button") Sign Up
