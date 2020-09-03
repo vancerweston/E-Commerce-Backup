@@ -6,22 +6,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const InitiateMongoServer = require('./config/db');
 const setupDefaultData = require('./config/defaultData');
-const create_dumb_product = require('./middleware/create');
+// const create_dumb_product = require('./middleware/create');
+
+const flash = require('connect-flash');
+const session = require('express-session');
+
+// PassPort
+const passport = require('passport');
+require('./config/passport-config')(passport);
 
 // application module imports
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const delete_extra_data = require('./middleware/delete');
-const update_user_info = require('./middleware/update');
 
-// database setup
-InitiateMongoServer().then(setupDefaultData);
-
-// Testing CRUD Operations
-// InitiateMongoServer().then(create_dumb_product);
-// InitiateMongoServer().then(delete_extra_data);
-// InitiateMongoServer().then(update_user_info);
-
+// Database Set Up
+InitiateMongoServer().then(setupDefaultData).catch((err) => {throw err});
 
 // setting up express
 const app = express();
@@ -35,6 +34,29 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Express Session
+app.use(session({
+  secret: 'henry',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// PassPort
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect Flash
+app.use(flash());
+
+// Global Vars
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.admin_msg = req.flash('admin_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+})
 
 // Router Middleware
 app.use('/', indexRouter);

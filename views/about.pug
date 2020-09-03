@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+    div(class='aboutUs')
+        div(class='about card card-body')
+            h2 About Us
+            p One idea, three friends, no toilet paper...
+            p Corona & Sons Inc. was created in a truck stop bathroom. 
+        div(class='mission card card-body')
+            h2 Mission Statement
+            p Is COVID-19 driving you crazy? We've got you covered! 
+            p From hand sanitizers to masks, we are here to help protect you during these uncertain times.
+        div(class='contact card card-body')
+            form(action="/users/contact" method='POST')
+                div(class='form-group')
+                    h2 Contact Us
+                    if success_msg != ''
+                        div(class='alert alert-success alert-dismissible fad show' role='alert')
+                            p(style='margin: 0px 0px 0px 35px')=success_msg
+                            button(type='button'  class='close' data-dismiss='alert' aria-label='Close')
+                    textarea(
+                        id='textbox'
+                        name='textbox'
+                        class='form-control'
+                        placeholder='Enter Your Message Here'
+                    )
+                button(type='submit' class='btn btn-primary btn-block') Send

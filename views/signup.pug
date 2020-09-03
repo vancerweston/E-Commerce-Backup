@@ -1,28 +1,112 @@
-extends layout
-
-block content
-    div(class='grid')
-        form(action="#")
-            div.label Sign Up Form
-            div.first_name
-                label(for='first_name') First Name:
-                input(type="string" placeholder="First Name") 
-            div.middle_name
-                label(for='middle_name') Middle Name:
-                input(type="string" placeholder="Middle Name")
-            div.last_name
-                label(for='last_name') Last Name:
-                input(type="string" placeholder="Last Name")
-            div.email
-                label(for='email') Email:
-                input(type="string" placeholder="name@email.com")
-            div.user_name
-                label(for='user_name') Username:
-                input(type="string" placeholder="first and last names")
-            div.password
-                label(for='pw') Password:
-                input(type="string" placeholder="")
-            div.confirm_password
-                label(for='pw2') Confirm Password:
-                input(type="string" placeholder="")
-            button(type="button") Sign Up
+doctype html
+html
+  head
+    title Coronavirus
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    //--script(src='/javascripts/slides.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://bootswatch.com/4/lux/bootstrap.min.css")
+  body
+    div#backButton
+        a(href='/')
+            button(type='submit' class='btn btn-primary btn-block') Back to Home
+    div(class="row mt-5" id='signUp')
+        div(class="col-md-6 m-auto")
+            div(class="card card-body")
+                h1(class='text-center mb-3')
+                    i(class='fas fa-user-plus') Sign Up 
+                if typeof errors != 'undefined'
+                    each val in errors
+                        div(class='alert alert-warning alert-dismissible fad show' role='alert')
+                            p(style='margin: 0px 0px 0px 35px')=val.msg
+                            button(type='button'  class='close' data-dismiss='alert' aria-label='Close')
+                form(action="/users/signup" method='POST')
+                    div(class='form-group')
+                        label(for='firstName') First Name
+                            -
+                                if (firstName!='undefined') 
+                                    var value1=firstName 
+                                else 
+                                    var value1=''
+                        input(
+                            type='firstName'
+                            id='firstName'
+                            name='firstName'
+                            class='form-control'
+                            placeholder='Enter First Name'
+                            value=value1
+                        )
+                    div(class='form-group')
+                        label(for='lastName') Last Name
+                            -
+                                if (lastName!='undefined') 
+                                    var value2=lastName 
+                                else 
+                                    var value2=''
+                        input(
+                            type='lastName'
+                            id='lastName'
+                            name='lastName'
+                            class='form-control'
+                            placeholder='Enter Last Name'
+                            value=value2
+                        )
+                    div(class='form-group')
+                        label(for='email') Email
+                            -
+                                if (email!='undefined') 
+                                    var value3=email 
+                                else 
+                                    var value3=''
+                        input(
+                            type='email'
+                            id='email'
+                            name='email'
+                            class='form-control'
+                            placeholder='Enter Email'
+                            value=value3
+                        )
+                    div(class='form-group')
+                        label(for='password') Password
+                            -
+                                if (email!='undefined') 
+                                    var value4=password 
+                                else 
+                                    var value4=''
+                        input(
+                            type='password'
+                            id='password'
+                            name='password'
+                            class='form-control'
+                            placeholder='Create Password'
+                            value=value4
+                        )
+                    div(class='form-group')
+                        label(for='password2') Confirm Password
+                            -
+                                if (email!='undefined') 
+                                    var value5=password2 
+                                else 
+                                    var value5=''
+                        input(
+                            type='password'
+                            id='password2'
+                            name='password2'
+                            class='form-control'
+                            placeholder='Confirm Password'
+                            value=value5
+                        )
+                    div(class='form-group')
+                        label(for='admin') Admin Code
+                        input(
+                            type='password'
+                            id='admin'
+                            name='admin'
+                            class='form-control'
+                            placeholder='Admin Rights Code'
+                        )
+                    button(type='submit' class='btn btn-primary btn-block') Sign Up
+                p(class='lead mt-4') Have an Account? 
+                    a(href='/users/login') Login
+                
+                    

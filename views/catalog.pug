@@ -3,39 +3,34 @@ extends layout
 block content
     div(class='grid')
         div#catalogPage
-            h1 Product Catalog 
-            div(class='search')
-                input(type='text', placeholder='Search...')
-                button(class='searchButton', id="browseProducts") Submit
+            div(class='card card-body searchBar')
+                h1 Product Catalog
+                form(class='form-group' action='/catalog')
+                    input(class="browse" type='text', name='search2', placeholder='Browse products...')
+                    button(type='submit' class='btn btn-primary btn-block') Search
             div(class='allProducts')
-                div(class='productFeed')
-                    if products.length == 0
-                        p No Products to display...
-                    else
-                        each val in products
-                            - var _id=val._id
-                            div(class='product', id=_id, onClick='selectedProduct(this.id)')
-                                h3.productPart=val.title
-                                div.content
-                                    - var pic= val.img
-                                    img(class="productPart", src=pic, alt="Your Browser Doesn't Support Our Image, Sorry.")
-                                    p Sold By: 
-                                    p.productPart=val.seller
-                                    span $ 
-                                        //might switch span $ to an icon
-                                    p.productPart=val.price
-                                    p.productPart=val.description
-                                    span.productPart=val.rating
-                                        //want to do a star icon based on rating
-        div(class='productDetails', id='productDetails', style='display:none')
-            button(id='back', onClick='exit()') Back
+                if products.length == 0
+                    p No Products to display...
+                else
+                    each val in products
+                        - var _id=val._id
+                        div(class='product', id=_id, onClick='selectedProduct(this.id)')
+                            h3.productPart=val.title
+                            div.content
+                                - var pic= val.img
+                                img(class="productPart", src=pic, alt="Your Browser Doesn't Support Our Image, Sorry.")
+                                p.productPart Sold By: #{val.seller}
+                                p.productPart.extra Price: $#{val.price}
+                                p.productPart.extra Description: #{val.description}
+                                span.productPart.extra Rating: #{val.rating}/5
+                                    //want to do a star icon based on rating
+        div(class='productDetails card card-body', id='productDetails', style='display:none')
+            button(id='back', class='btn btn-primary btn-block', onClick='exit()') Back
             // ^ change to icon
-            h1#title
+            h3#title
             div(class='content')
                 img(src='', alt="Your Browser Doesn't Support Our Image, Sorry.", id='img')
-                p Sold By:
                 p#seller
-                span $
                 p#price
                 p#description
                 p#rating
@@ -45,7 +40,7 @@ block content
 
 
 
-            
+
 
 
 

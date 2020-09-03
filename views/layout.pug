@@ -1,36 +1,53 @@
 doctype html
 html
   head
-  title= title
-  link(rel='stylesheet', href='/stylesheets/style.css')
+    title Coronavirus
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    //--script(src='/javascripts/slides.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://bootswatch.com/4/lux/bootstrap.min.css")
   body
-    div(class='grid')
-      h1= title
-        nav#navbar-default  
-      div.container-fluid
-        ul
-          li
+  div(class='header')
+    div(class='siteName')
+      h1(class='companyName') Corona & Sons 
+      img(class='companyLogo' src='./images/logo.png' alt='company_logo')
+      h1(class='companyName') COVID-19 Shop
+    div(class='topNav')
+      div.pages
+        a(href="/" class='active') Home
+        a(href="/catalog") Product Catalog
+        a(href='/about') About Us
+      div.login
+        if (fullName != 'test')
+          a(href='/profile')=fullName
+        else
+          a(href="/users/login") Login
+          a(href="/users/signup") Sign Up
+
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+    script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous")
+  block content
+  footer
+    div(class='botNav')
+      div.footerLayout
+        div.pages2
             a(href='/') Home
-          li
+            p='|'
             a(href='/catalog') Product Catalog
-          li
-            a(href='/login') Login
-          li
-            a(href='/signup') Sign Up
-    block content 
-    footer#footer
-      nav#navbar-default
-    div.container-fluid
-        ul
-          li
-            a(href='/') Home
-          li
-            a(href='/catalog') Product Catalog
-          li
-            a(href='/login') Login
-          li
-            a(href='/signup') Sign Up
-        p Copyright (c) 2020 Corona & Sons, Inc.
+            p='|'
+            a(href='/about') About Us
+        div.login2
+          if (fullName != 'test')
+            a(href='/profile')=fullName
+          else
+            a(href="/users/login") Login
+            p='|'
+            a(href="/users/signup") Sign Up
+      p Website by Vance Weston, Katherine Lee, & James Taylor
+
+
+script(src='javascripts/navbar.js')
 
 
 
@@ -43,7 +60,7 @@ html
 
 
 
-  
+
 
 
 

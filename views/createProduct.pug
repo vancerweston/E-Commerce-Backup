@@ -1,0 +1,100 @@
+extends layout
+
+block content
+    div(class="row mt-5")
+        div(class="col-md-6 m-auto")
+            div(class="card card-body")
+                h1(class='text-center mb-3')
+                    i(class='fas fa-user-plus') Create Product 
+                        button(type='button' style='height: 80px;' class='close' data-dismiss='alert' aria-label='Close')
+                form(action="/createProduct" method='POST')
+                    div(class='form-group')
+                        label(for='title') Product Name:
+                    input(
+                    type='string'
+                    id='title'
+                    name='title'
+                    class='form-control'
+                    placeholder='Enter Product Name'
+                    value=value1
+                )
+                    div(class='form-group')
+                        label(for='seller') Seller Name:
+                    input(
+                    type='string'
+                    id='seller'
+                    name='seller'
+                    class='form-control'
+                    placeholder='Enter your name'
+                    value=value2
+                )
+                    div(class='form-group')
+                        label(for='seller_id') Seller ID:
+                    input(
+                    type='string'
+                    id='seller_id'
+                    name='seller_id'
+                    class='form-control'
+                    placeholder='Enter your ID'
+                    value=value3
+                )
+                    div(class='form-group')
+                        label(for='description') Product Description:
+                    input(
+                    type='string'
+                    id='description'
+                    name='description'
+                    class='form-control'
+                    placeholder='Enter product description'
+                    value=value4
+                )
+                    div(class='form-group')
+                        label(for='price') Price:
+                    input(
+                    type='string'
+                    id='price'
+                    name='price'
+                    class='form-control'
+                    placeholder='Enter product price'
+                    value=value5
+                )
+                    div(class='form-group')
+                        label(for='img') Product Image:
+                    input(
+                    type='string'
+                    id='img'
+                    name='img'
+                    class='form-control'
+                    placeholder='Attach image file'
+                    value=value6
+                )
+
+                    button(type='submit' id='newProduct') Add Product
+
+                    script(src="./javascripts/createProduct.js")
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

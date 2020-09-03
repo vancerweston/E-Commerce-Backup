@@ -1,17 +1,57 @@
-extends layout
-
-block content
-    div(class='grid')
-     form(action="#")
-       div.label Login Form
-       div.username
-        input(type="text" placeholder="username")
-       div.password
-        input(type="password" placeholder="password")
-       div.checkbox
-        input(type='checkbox' name='agreement' checked)
-        |Remember me
-       button(type="button") Login
-       p
-        | Not a member
-        a(href="/signup") Sign Up Now
+doctype html
+html
+  head
+    title Coronavirus
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    //--script(src='/javascripts/slides.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://bootswatch.com/4/lux/bootstrap.min.css")
+  body
+    div#backButton
+        a(href='/')
+            button(type='submit' class='btn btn-primary btn-block') Back to Home
+    div(class="row mt-5" id='login')
+        div(class="col-md-6 m-auto")
+            div(class="card card-body")
+                h1(class='text-center mb-3')
+                    i(class='fas fa-sign-in-alt') Login
+                if success_msg != ''
+                    div(class='alert alert-success alert-dismissible fad show' role='alert')
+                        p(style='margin: 0px 0px 0px 35px')=success_msg
+                        button(type='button'  class='close' data-dismiss='alert' aria-label='Close')
+                if admin_msg != ''
+                    div(class='alert alert-success alert-dismissible fad show' role='alert')
+                        p(style='margin: 0px 0px 0px 35px')=admin_msg
+                        button(type='button'  class='close' data-dismiss='alert' aria-label='Close')
+                if error_msg != ''
+                    div(class='alert alert-warning alert-dismissible fad show' role='alert')
+                        p(style='margin: 0px 0px 0px 35px')=error_msg
+                        button(type='button'  class='close' data-dismiss='alert' aria-label='Close')
+                if error != ''
+                    div(class='alert alert-warning alert-dismissible fad show' role='alert')
+                        p(style='margin: 0px 0px 0px 35px')=error
+                        button(type='button'  class='close' data-dismiss='alert' aria-label='Close')
+                form(action="/users/login" method='POST')
+                    div(class='form-group')
+                        label(for='email') Email
+                        input(
+                            type='email'
+                            id='email'
+                            name='email'
+                            class='form-control'
+                            placeholder='Enter Email'
+                        )
+                    div(class='form-group')
+                        label(for='password') Password
+                        input(
+                            type='password'
+                            id='password'
+                            name='password'
+                            class='form-control'
+                            placeholder='Create Password'
+                        )
+                    button(type='submit' class='btn btn-primary btn-block') Login
+                p(class='lead mt-4') No Account? 
+                    a(href='/users/signup') Sign Up
+                
+                    

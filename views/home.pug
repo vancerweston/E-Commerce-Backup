@@ -1,31 +1,48 @@
 extends layout
 
 block content
+  div(class='slogan card card-body')
+    h1 We've Got You Covered!
   div(class='grid')
-    div(class='About Us')
-      h2 About Us
-      p Corona & Sons was created in a truck stop bathroom...
-    div(class='missionStatement')
-      h2 Mission Statement:
-      p Is COVID-19 driving you crazy? Corona & Sons has you covered! 
-      p From hand sanitizers to masks, we are here to help protect you during these uncertain times.
-    div(class='content')
-      h2 Featured Product
+    //- div(class="slideshow-container")
+    //-   div(class="mySlides fade")
+    //-     div(class="numbertext") 1/3
+    //-       img(src="960x0.png" style="width:100%")
+    //-       div(class="text") Caption Text
+
+    //-   div(class="mySlides fade")
+    //-     div(class="numbertext") 2/3
+    //-       img(src="img2.jpg" style="width:100%")
+    //-       div(class="text") Caption Two
+
+    //-   div(class="mySlides fade")
+    //-     div(class="numbertext") 3/3
+    //-       img(src="img3.jpg" style="width:100%")
+    //-       div(class="text") Caption Three
+
+    //-       a(class="prev" onclick="plusSlides(-1)") &#10094;
+    //-       a(class="next" onclick="plusSlides(1)") &#10095;
+
+    //-   div(style="text-align:center")
+    //-     span(class="dot" onclick="currentSlide(1)")
+    //-     span(class="dot" onclick="currentSlide(2)")
+    //-     span(class='dot' onclick="currentSlide(3)")
+    //-     div(class='content')
+    div(class='homePage')
+      h2 Featured Product of the Week:  
+        br
+        br
         if product.length == 0
           p No product to display...
         else
           each val in product
+            div(class='product', onClick="location.href='/catalog';")
               h3=val.title
-                  span(id='product' class='material-icons' data-product-id=val._id) 
-                  // switch to an icon ^
               div(class='content')
                   - var pic= val.img
                   img(src=pic, alt="Your Browser Doesn't Support Our Image, Sorry.")
-                  p Sold By: 
-                  p=val.seller
-      h2 Monthly Newsletter
-        a(href='https://docs.google.com/document/d/1gaW6j945sv5H9RmibNZYOiCdJssq4WSyQEgd6Ko0CHk/edit#') August
-
+                  p.productPart Sold By: #{val.seller}
+      
 
 
 
